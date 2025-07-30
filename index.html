@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Reasons Why I Love You</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="back-container">
+            <a href="https://zipiplaysgaming.github.io/girlfriends-day/"
+                class="back-button">← Back</a>
+        </div>
+
+        <h1 class="heading">Reasons Why I Love You</h1>
+        <button class="shuffle-button" onclick="shuffleCards()">Shuffle Cards
+            🔀</button>
+        <div class="grid">
+
+            <!-- Each card contains front and back sides -->
+            <div class="card" onclick="flip(this)">
+                <div class="card-inner">
+                    <div class="card-front">1</div>
+                    <div class="card-back">You make me smile sm</div>
+                </div>
+            </div>
+            <div class="card" onclick="flip(this)">
+                <div class="card-inner">
+                    <div class="card-front">2</div>
+                    <div class="card-back">You're so cute</div>
+                </div>
+            </div>
+            <div class="card" onclick="flip(this)">
+                <div class="card-inner">
+                    <div class="card-front">3</div>
+                    <div class="card-back">You bite me</div>
+                </div>
+            </div>
+            <div class="card" onclick="flip(this)">
+                <div class="card-inner">
+                    <div class="card-front">4</div>
+                    <div class="card-back">You make me feel loved</div>
+                </div>
+            </div>
+            <div class="card" onclick="flip(this)">
+                <div class="card-inner">
+                    <div class="card-front">5</div>
+                    <div class="card-back">Your cute laugh</div>
+                </div>
+            </div>
+            <div class="card" onclick="flip(this)">
+                <div class="card-inner">
+                    <div class="card-front">6</div>
+                    <div class="card-back">Your voice</div>
+                </div>
+            </div>
+            <div class="card" onclick="flip(this)">
+                <div class="card-inner">
+                    <div class="card-front">7</div>
+                    <div class="card-back">You’re always there for me</div>
+                </div>
+            </div>
+            <div class="card" onclick="flip(this)">
+                <div class="card-inner">
+                    <div class="card-front">8</div>
+                    <div class="card-back">You make me laugh so much</div>
+                </div>
+            </div>
+            <div class="card" onclick="flip(this)">
+                <div class="card-inner">
+                    <div class="card-front">9</div>
+                    <div class="card-back">You're weird and autistic like
+                        me</div>
+                </div>
+            </div>
+            <div class="card" onclick="flip(this)">
+                <div class="card-inner">
+                    <div class="card-front">10</div>
+                    <div class="card-back">You say 'I love you' in the cutest
+                        ways</div>
+                </div>
+            </div>
+            <div class="card" onclick="flip(this)">
+                <div class="card-inner">
+                    <div class="card-front">11</div>
+                    <div class="card-back">You're sweet and amazing</div>
+                </div>
+            </div>
+            <div class="card" onclick="flip(this)">
+                <div class="card-inner">
+                    <div class="card-front">12</div>
+                    <div class="card-back">I feel safe with you</div>
+                </div>
+            </div>
+            <div class="card" onclick="flip(this)">
+                <div class="card-inner">
+                    <div class="card-front">13</div>
+                    <div class="card-back">I can be myself with you</div>
+                </div>
+            </div>
+            <div class="card" onclick="flip(this)">
+                <div class="card-inner">
+                    <div class="card-front">14</div>
+                    <div class="card-back">You make my heart go dokidoki</div>
+                </div>
+            </div>
+            <div class="card" onclick="flip(this)">
+                <div class="card-inner">
+                    <div class="card-front">15</div>
+                    <div class="card-back">You're my peace</div>
+                </div>
+            </div>
+            <div class="card" onclick="flip(this)">
+                <div class="card-inner">
+                    <div class="card-front">16</div>
+                    <div class="card-back">Because you're YOU 💗</div>
+                </div>
+            </div>
+
+        </div>
+
+        <script>
+  function flip(card) {
+    card.classList.toggle('flipped');
+  }
+
+  function shuffleCards() {
+    const grid = document.querySelector('.grid');
+    const cards = Array.from(grid.children);
+    cards.forEach(card => card.classList.remove('flipped')); // Reset flips
+    for (let i = cards.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [cards[i], cards[j]] = [cards[j], cards[i]];
+    }
+    grid.innerHTML = '';
+    cards.forEach(card => grid.appendChild(card));
+    animateCards(); // re-animate after shuffle
+  }
+
+  function animateCards() {
+    const allCards = document.querySelectorAll('.card');
+    allCards.forEach((card, i) => {
+      card.style.animationDelay = `${i * 0.05}s`;
+      card.classList.add('fade-in');
+    });
+  }
+
+  window.onload = animateCards;
+</script>
+
+    </body>
+</html>
